@@ -27,9 +27,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       {/* A Meta Tag do AdSense também pode ir aqui diretamente se preferir */}
-      {/* <head>
+      <head>
           <meta name="google-adsense-account" content="7328591460493456" />
-      </head> */}
+      </head>
       <body className={inter.className}>
         {children}
 
