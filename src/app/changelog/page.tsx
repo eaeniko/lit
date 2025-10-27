@@ -9,7 +9,7 @@ export default function ChangelogPage() {
          <header className="text-center mb-12 md:mb-16">
             {/* Título com gradiente mais vibrante */}
             <h1 className="text-4xl md:text-5xl font-bold mb-4 text-transparent bg-clip-text bg-linear-to-r from-cyan-400 via-blue-400 to-indigo-400">
-              MyLIT Changelog
+              LIT Changelog
             </h1>
             <p className="text-lg text-gray-400">Follow the project&apos;s evolution, step by step.</p>
              <Link href="/" className="mt-6 inline-block text-blue-400 hover:text-blue-300 transition duration-200 text-sm">
@@ -21,7 +21,7 @@ export default function ChangelogPage() {
 
       </div>
        <footer className="mt-16 text-center text-gray-500 text-xs">
-            MyLIT Project - {new Date().getFullYear()}
+            LIT Project - {new Date().getFullYear()}
         </footer>
     </main>
   );
