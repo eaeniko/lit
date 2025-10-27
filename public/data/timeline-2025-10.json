@@ -25,6 +25,17 @@
   "icon": "Megaphone",
   "title": "Publish first landing page",
   "description": "Temporary landing page with usefull links and changelog."
+  },
+  {
+    "id": "DESIGN-UPDATE-20251027-173730",
+    "date": "2025-10-27T20:37:30.512Z",
+    "tags": [
+      "DESIGN",
+      "UPDATE"
+    ],
+    "icon": "Palette",
+    "title": "Update Default Icon to Provisory Fav icon",
+    "description": "Update Default Icon to Provisory Fav icon"
   }
 ]
 
