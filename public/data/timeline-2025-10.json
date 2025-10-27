@@ -1,6 +1,6 @@
 [
   {
-    "id": "entry-1761250000000-init",
+    "id": "entry-init-20251027-234500",
     "date": "2025-10-18T02:45:00.000Z",
     "tags": ["META", "INIT"],
     "icon": "PartyPopper",
@@ -8,7 +8,7 @@
     "description": "Lit project officially started after conceptual discussions with Gemini. `lit-app` repository created on GitHub. Initial GDD structure (v1) created on GitHub Wiki."
   },
    {
-    "id": "entry-1761340000000-timeline",
+    "id": "entry-init-20251027-153700",
     "date": "2025-10-27T18:37:30.512Z",
     "tags": ["DEV", "NEW"],
     "icon": "Sparkles",
