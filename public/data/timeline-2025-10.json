@@ -1,0 +1,27 @@
+[
+  {
+    "id": "entry-1761250000000-init",
+    "date": "2025-10-27T12:00:00.000Z",
+    "tags": ["META", "INIT"],
+    "icon": "PartyPopper",
+    "title": "Official Project Start",
+    "description": "MyLIT project officially started after conceptual discussions with Gemini. `lit-landing-page` repository created on GitHub. Initial GDD structure (v1) created on GitHub Wiki."
+  },
+  {
+    "id": "entry-1761336400000-setup",
+    "date": "2025-10-28T10:00:00.000Z",
+    "tags": ["DEV", "INIT"],
+    "icon": "Construction",
+    "title": "Website Setup",
+    "description": "Created Next.js project in `lit-landing-page` repo. Configured Vercel deployment. Initialized shadcn/ui."
+  },
+   {
+    "id": "entry-1761340000000-timeline",
+    "date": "2025-10-28T11:00:00.000Z",
+    "tags": ["DEV", "NEW"],
+    "icon": "Sparkles",
+    "title": "Visual Timeline Created",
+    "description": "Developed the Changelog page (`/changelog`) with React component, reading data from JSON. Implemented 'Liquid Glass' style. Created local HTML tool for adding entries."
+   }
+]
+

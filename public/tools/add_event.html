@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Event - MyLIT Timeline</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        html, body { height: 100%; margin: 0; padding: 0; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-image: linear-gradient(to bottom right, #111827, #0d1117, #111827);
+            background-attachment: fixed;
+        }
+        .glass-card {
+            background: rgba(17, 24, 39, 0.6);
+            backdrop-filter: blur(12px) saturate(150%);
+            -webkit-backdrop-filter: blur(12px) saturate(150%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.75rem;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+         input[type="text"], select, textarea {
+             background-color: rgba(17, 24, 39, 0.7) !important;
+             border-color: rgba(55, 65, 81, 0.7) !important;
+             color: #e5e7eb;
+             border-radius: 0.375rem;
+             transition: all 0.2s ease-in-out;
+         }
+         input[type="text"]:focus, select:focus, textarea:focus {
+             border-color: rgba(96, 165, 250, 0.8) !important;
+             box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.3);
+             outline: none;
+         }
+         button { transition: all 0.2s ease-in-out; }
+         button:hover {
+            filter: brightness(1.2);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+         }
+         /* Removed scrollbar styles as they can sometimes cause issues or be non-standard */
+    </style>
+</head>
+<body class="text-gray-200 p-4 md:p-8">
+    {/* Formulário Principal */}
+    <div class="max-w-xl mx-auto glass-card p-6 md:p-8 mb-8">
+        <h1 class="text-3xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">Add New Timeline Event</h1>
+
+        <form id="event-form" class="space-y-5">
+            <div>
+                 <label for="tag-principal" class="block text-sm font-medium text-gray-300 mb-1">Main Tag *</label>
+                 <select id="tag-principal" name="tag-principal" required class="w-full px-3 py-2 focus:outline-none" aria-label="Select Main Tag">
+                     {/* Options loaded by JS */}
+                 </select>
+             </div>
+             <div>
+                 <label for="tag-secundaria" class="block text-sm font-medium text-gray-300 mb-1">Secondary Tag *</label>
+                 <select id="tag-secundaria" name="tag-secundaria" required class="w-full px-3 py-2 focus:outline-none" aria-label="Select Secondary Tag">
+                      {/* Options loaded by JS */}
+                 </select>
+             </div>
+             <div>
+                 <label for="titulo" class="block text-sm font-medium text-gray-300 mb-1">Short Title *</label>
+                 <input type="text" id="titulo" name="titulo" required maxlength="50" placeholder="E.g., Landing Page Deployed" class="w-full px-3 py-2 focus:outline-none" aria-label="Enter Short Title">
+             </div>
+             <div>
+                 <label for="descricao" class="block text-sm font-medium text-gray-300 mb-1">Detailed Description * (Use \n for new lines)</label>
+                 <textarea id="descricao" name="descricao" rows="4" required placeholder="Details of what was done... Use \\n for line breaks in JSON." class="w-full px-3 py-2 focus:outline-none" aria-label="Enter Detailed Description"></textarea>
+             </div>
+              <div>
+                 <label for="icone" class="block text-sm font-medium text-gray-300 mb-1">Lucide Icon Name (Optional)</label>
+                 <input type="text" id="icone" name="icone" placeholder="E.g., Code, Palette (Leave blank for default)" class="w-full px-3 py-2 focus:outline-none" aria-label="Enter Lucide Icon Name (Optional)">
+                 <p class="text-xs text-gray-400 mt-1">Find names at: <a href="https://lucide.dev/icons/" target="_blank" class="text-blue-400 hover:underline">lucide.dev/icons</a></p>
+             </div>
+            <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white font-bold py-2.5 px-4 rounded-lg shadow-lg">
+                Generate JSON Entry & Commit Msg
+            </button>
+        </form>
+
+        {/* Results Area */}
+        <div id="results" class="mt-8 p-5 bg-black/30 backdrop-blur-md border border-gray-600/50 rounded-lg hidden">
+             <h2 class="text-xl font-semibold mb-4 text-green-400 flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>Success! Copy and paste below:</h2>
+             <div class="space-y-4">
+                  <div>
+                      <label for="json-filename" class="block text-sm font-medium text-gray-300 mb-1">1. JSON Filename (in `public/data/` folder):</label>
+                      <input type="text" id="json-filename" readonly class="w-full bg-gray-800/70 text-gray-300 px-3 py-1.5 rounded-md border border-gray-700/50 cursor-pointer focus:outline-none focus:ring-1 focus:ring-blue-500" onclick="this.select()" aria-label="JSON Filename to use">
+                  </div>
+                  <div>
+                      <label id="json-label" for="json-output" class="block text-sm font-medium text-gray-300 mb-1">2. JSON Block to add (Paste BEFORE final `]`):</label>
+                      <textarea id="json-output" rows="12" readonly class="w-full bg-gray-800/70 text-gray-300 px-3 py-2 rounded-md border border-gray-700/50 font-mono text-sm cursor-pointer focus:outline-none focus:ring-1 focus:ring-blue-500" onclick="this.select()" aria-label="Generated JSON Block"></textarea>
+                      <p class="text-xs text-yellow-400 mt-1">ℹ️ If this is the first entry for the month, CREATE the file and paste this block BETWEEN `[` and `]`.</p>
+                  </div>
+                   <div>
+                      <label for="commit-message" class="block text-sm font-medium text-gray-300 mb-1">3. Suggested Commit Message:</label>
+                      <input type="text" id="commit-message" readonly class="w-full bg-gray-800/70 text-gray-300 px-3 py-1.5 rounded-md border border-gray-700/50 cursor-pointer focus:outline-none focus:ring-1 focus:ring-blue-500" onclick="this.select()" aria-label="Suggested Git Commit Message">
+                  </div>
+             </div>
+               <p class="text-xs text-gray-400 mt-4">👉 Remember to `git add .`, `git commit -m "YOUR MESSAGE"`, and `git push` after pasting.</p>
+         </div>
+    </div>
+
+    {/* Tag Management Section */}
+    <div class="max-w-xl mx-auto glass-card p-6 md:p-8">
+        <h2 class="text-2xl font-bold mb-6 text-center text-blue-400">Manage Tags</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Main Tags */}
+            <div>
+                <h3 class="text-lg font-semibold mb-3 text-gray-300 border-b border-gray-600 pb-1">Main Tags</h3>
+                <ul id="main-tags-list" class="mb-4 space-y-2 max-h-48 overflow-y-auto pr-2"></ul>
+                <div class="flex gap-2">
+                    {/* flex-grow -> grow */}
+                    <input type="text" id="new-main-tag" placeholder="New main tag (e.g., TEST)" class="grow px-3 py-1.5 rounded-md text-sm focus:outline-none" aria-label="Add new main tag">
+                    <button id="add-main-tag-btn" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-1.5 rounded-md text-sm shadow-md">Add</button>
+                </div>
+            </div>
+            {/* Secondary Tags */}
+            <div>
+                 <h3 class="text-lg font-semibold mb-3 text-gray-300 border-b border-gray-600 pb-1">Secondary Tags</h3>
+                 <ul id="secondary-tags-list" class="mb-4 space-y-2 max-h-48 overflow-y-auto pr-2"></ul>
+                 <div class="flex gap-2">
+                     {/* flex-grow -> grow */}
+                    <input type="text" id="new-secondary-tag" placeholder="New secondary tag (e.g., WIP)" class="grow px-3 py-1.5 rounded-md text-sm focus:outline-none" aria-label="Add new secondary tag">
+                    <button id="add-secondary-tag-btn" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-1.5 rounded-md text-sm shadow-md">Add</button>
+                 </div>
+            </div>
+        </div>
+    </div>
+
+    {/* Footer */}
+    <footer class="text-center text-xs text-gray-500 mt-12 pb-4">
+        MyLIT Timeline Tool - Local Use Only | &copy; {new Date().getFullYear()}
+    </footer>
+
+    {/* Script remains largely the same, no critical lint errors here */}
+    <script>
+        // --- DOM Elements ---
+        const form = document.getElementById('event-form');
+        const resultsDiv = document.getElementById('results');
+        const jsonFilenameInput = document.getElementById('json-filename');
+        const jsonOutputTextarea = document.getElementById('json-output');
+        const commitMessageInput = document.getElementById('commit-message');
+        const jsonLabel = document.getElementById('json-label');
+        const mainTagSelect = document.getElementById('tag-principal');
+        const secondaryTagSelect = document.getElementById('tag-secundaria');
+        const mainTagsList = document.getElementById('main-tags-list');
+        const secondaryTagsList = document.getElementById('secondary-tags-list');
+        const newMainTagInput = document.getElementById('new-main-tag');
+        const addMainTagBtn = document.getElementById('add-main-tag-btn');
+        const newSecondaryTagInput = document.getElementById('new-secondary-tag');
+        const addSecondaryTagBtn = document.getElementById('add-secondary-tag-btn');
+
+        // --- Tag Management ---
+        let mainTags = [];
+        let secondaryTags = [];
+        const defaultMainTags = ['DEV', 'DESIGN', 'DOCS', 'COMMUNITY', 'MARKETING', 'META'];
+        const defaultSecondaryTags = ['NEW', 'UPDATE', 'FIX', 'REFACTOR', 'RELEASE', 'POST', 'INIT', 'WIP'];
+        const MAIN_TAGS_KEY = 'timelineMainTags_v3';
+        const SECONDARY_TAGS_KEY = 'timelineSecondaryTags_v3';
+
+        function saveTags() {
+            try {
+                localStorage.setItem(MAIN_TAGS_KEY, JSON.stringify(mainTags));
+                localStorage.setItem(SECONDARY_TAGS_KEY, JSON.stringify(secondaryTags));
+            } catch (e) { console.error("Error saving tags:", e); }
+        }
+
+        function loadTags() {
+            try {
+                const storedMain = localStorage.getItem(MAIN_TAGS_KEY);
+                const storedSecondary = localStorage.getItem(SECONDARY_TAGS_KEY);
+                mainTags = storedMain ? JSON.parse(storedMain) : [...defaultMainTags];
+                secondaryTags = storedSecondary ? JSON.parse(storedSecondary) : [...defaultSecondaryTags];
+            } catch (e) {
+                console.error("Error loading tags:", e);
+                mainTags = [...defaultMainTags];
+                secondaryTags = [...defaultSecondaryTags];
+            }
+            if (!Array.isArray(mainTags) || mainTags.length === 0) mainTags = [...defaultMainTags];
+            if (!Array.isArray(secondaryTags) || secondaryTags.length === 0) secondaryTags = [...defaultSecondaryTags];
+            mainTags.sort();
+            secondaryTags.sort();
+            populateSelects();
+            renderTagLists();
+        }
+
+        function populateSelects() {
+            mainTagSelect.innerHTML = mainTags.map(tag => `<option value="${tag}">${tag}</option>`).join('');
+            secondaryTagSelect.innerHTML = secondaryTags.map(tag => `<option value="${tag}">${tag}</option>`).join('');
+        }
+
+        function renderTagLists() {
+            const createListItem = (tag, index, type) => `
+                <li class="flex justify-between items-center text-sm bg-gray-800/60 px-3 py-1 rounded-md border border-gray-600/50 shadow-sm">
+                    <span class="font-medium">${tag}</span>
+                    <button data-index="${index}" data-type="${type}" class="text-red-400 hover:text-red-500 ml-3 font-bold text-lg leading-none focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 rounded-full p-0.5" title="Remove tag">&times;</button>
+                </li>`;
+            mainTagsList.innerHTML = mainTags.map((tag, index) => createListItem(tag, index, 'main')).join('');
+            secondaryTagsList.innerHTML = secondaryTags.map((tag, index) => createListItem(tag, index, 'secondary')).join('');
+            document.querySelectorAll('#main-tags-list button, #secondary-tags-list button').forEach(button => {
+                button.removeEventListener('click', handleRemoveTag);
+                button.addEventListener('click', handleRemoveTag);
+            });
+        }
+
+        function handleAddTag(type) {
+            const input = (type === 'main') ? newMainTagInput : newSecondaryTagInput;
+            const tagList = (type === 'main') ? mainTags : secondaryTags;
+            const newTag = input.value.trim().toUpperCase().replace(/[^A-Z0-9_\-]/g, '');
+
+            if (newTag && newTag.length > 0 && newTag.length <= 15) {
+                 if (!tagList.includes(newTag)) {
+                    tagList.push(newTag);
+                    tagList.sort();
+                    saveTags();
+                    populateSelects();
+                    renderTagLists();
+                    input.value = '';
+                 } else { alert(`Tag "${newTag}" already exists.`); }
+            } else if (!newTag) { alert('Tag cannot be empty.'); }
+            else { alert('Tag is too long (max 15 chars) or contains invalid characters (only A-Z, 0-9, _, - allowed).'); }
+             input.focus();
+        }
+
+        function handleRemoveTag(event) {
+            const button = event.target;
+            const index = parseInt(button.dataset.index);
+            const type = button.dataset.type;
+            const tagList = (type === 'main') ? mainTags : secondaryTags;
+            const tagName = tagList[index];
+
+            if (tagList.length <= 1) {
+                 alert(`Cannot remove the last ${type} tag.`);
+                 return;
+            }
+
+            if (confirm(`Are you sure you want to remove the tag "${tagName}"?`)) {
+                tagList.splice(index, 1);
+                saveTags();
+                populateSelects();
+                renderTagLists();
+            }
+        }
+
+        addMainTagBtn.addEventListener('click', (e) => { e.preventDefault(); handleAddTag('main'); });
+        newMainTagInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') { e.preventDefault(); handleAddTag('main'); } });
+        addSecondaryTagBtn.addEventListener('click', (e) => { e.preventDefault(); handleAddTag('secondary'); });
+        newSecondaryTagInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') { e.preventDefault(); handleAddTag('secondary'); } });
+
+        // --- JSON Generation ---
+         const defaultIcons = {
+             DEV: 'Code2', DESIGN: 'Palette', DOCS: 'BookOpenText', COMMUNITY: 'Users2', MARKETING: 'Megaphone', META: 'Settings2',
+             NEW: 'Sparkles', UPDATE: 'RotateCw', FIX: 'Wrench', REFACTOR: 'Lightbulb', RELEASE: 'Rocket', POST: 'MessageSquareText', INIT: 'PartyPopper', WIP: 'Construction',
+             default: 'Milestone'
+         };
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(form);
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            const hour = String(now.getHours()).padStart(2, '0');
+            const minute = String(now.getMinutes()).padStart(2, '0');
+            const second = String(now.getSeconds()).padStart(2, '0');
+
+            const filename = `timeline-${year}-${month}.json`;
+            const tagPrincipal = formData.get('tag-principal');
+            const tagSecundaria = formData.get('tag-secundaria');
+            const entryId = `${tagPrincipal}-${tagSecundaria}-${year}${month}${day}-${hour}${minute}${second}`;
+            const titulo = formData.get('titulo');
+            const descricao = formData.get('descricao').replace(/\r\n|\r|\n/g, '\\n');
+            let iconeInput = formData.get('icone').trim();
+            let icone = defaultIcons.default;
+
+             if (iconeInput && iconeInput.match(/^[A-Z][A-Za-z0-9]*$/)) {
+                 icone = iconeInput;
+             } else {
+                 if (iconeInput) console.warn(`Invalid or empty icon name '${iconeInput}', using default based on tags.`);
+                 icone = defaultIcons[tagPrincipal.toUpperCase()] || defaultIcons[tagSecundaria.toUpperCase()] || defaultIcons.default;
+             }
+
+            const newEntry = {
+                id: entryId, date: now.toISOString(), tags: [tagPrincipal, tagSecundaria].filter(Boolean),
+                icon: icone, title: titulo, description: descricao
+            };
+
+            const fileLikelyExists = document.getElementById('json-output').value.includes('}');
+            const jsonString = JSON.stringify(newEntry, null, 2);
+            const outputString = fileLikelyExists ? `,\n${jsonString}` : `[\n${jsonString}\n]`; // Adjusted logic here slightly
+            const commitMsg = `docs(timeline): Add ${tagPrincipal}/${tagSecundaria} - ${titulo}`;
+
+            jsonFilenameInput.value = filename;
+            jsonOutputTextarea.value = outputString;
+            // Simplified label logic
+            jsonLabel.textContent = `2. JSON Block to add to ${filename} (Paste BEFORE final \`]\` if file exists, or BETWEEN \`[\` and \`]\` if new):`;
+
+            commitMessageInput.value = commitMsg;
+            resultsDiv.classList.remove('hidden');
+            resultsDiv.scrollIntoView({ behavior: 'smooth' });
+
+            document.getElementById('titulo').value = '';
+            document.getElementById('descricao').value = '';
+            document.getElementById('icone').value = '';
+            document.getElementById('titulo').focus();
+        });
+
+        // --- Initial Load ---
+        document.addEventListener('DOMContentLoaded', loadTags);
+    </script>
+</body>
+</html>
+
