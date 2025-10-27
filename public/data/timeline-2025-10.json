@@ -22,6 +22,18 @@
     "icon": "Sparkles",
     "title": "Visual Timeline Created",
     "description": "Developed the Changelog page (`/changelog`) with React component, reading data from JSON. Implemented 'Liquid Glass' style. Created local HTML tool for adding entries."
-   }
+   },
+  {
+  "id": "MARKETING-INIT-20251027-163247",
+  "date": "2025-10-27T19:32:47.888Z",
+  "tags": [
+    "MARKETING",
+    "INIT"
+  ],
+  "icon": "Megaphone",
+  "title": "Publish first landing page",
+  "description": "Temporary landing page with usefull links and changelog."
+  }
 ]
+
 
