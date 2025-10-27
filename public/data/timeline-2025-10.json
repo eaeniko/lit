@@ -36,6 +36,17 @@
     "icon": "Palette",
     "title": "Update Default Icon to Provisory Fav icon",
     "description": "Update Default Icon to Provisory Fav icon"
+  },
+  {
+    "id": "DEV-NEW-20251027-201055",
+    "date": "2025-10-27T23:10:55.220Z",
+    "tags": [
+      "DEV",
+      "NEW"
+    ],
+    "icon": "Code2",
+    "title": "Add Vercel Analytics component",
+    "description": "Add Vercel Analytics component to track if organic views are comming to validate ideias."
   }
 ]
 
