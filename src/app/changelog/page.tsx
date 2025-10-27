@@ -13,7 +13,7 @@ export default function ChangelogPage() {
             </h1>
             <p className="text-lg text-gray-400">Follow the project&apos;s evolution, step by step.</p>
              <Link href="/" className="mt-6 inline-block text-blue-400 hover:text-blue-300 transition duration-200 text-sm">
-               ← Back to Home (Coming Soon)
+               ← Back to Home
              </Link>
         </header>
 
