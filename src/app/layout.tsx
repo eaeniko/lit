@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next"
 // Script não é mais necessário aqui se removemos o Analytics
 // import Script from 'next/script';
 
@@ -28,6 +29,7 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         {children}
+        <Analytics/>
       </body>
     </html>
   );
