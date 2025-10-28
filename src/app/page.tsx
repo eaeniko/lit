@@ -27,7 +27,7 @@ export default function HomePage() {
              <BookText size={16} /> Roadmap (Soon)
           </Link>
            {/* Link para a ferramenta local - abre em nova aba */}
-          <a href="/tools/adicionar_evento.html" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 bg-gray-800/50 hover:bg-gray-700/70 backdrop-blur-md border border-white/10 rounded-lg transition duration-200 text-sm font-medium" title="Add Timeline Event (Local Tool)">
+          <a href="/tools/adicionar_evento.html" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 bg-gray-800/50 hover:bg-gray-700/70 backdrop-blur-md border border-white/10 rounded-lg transition duration-200 text-sm font-medium text-gray-500 cursor-not-allowed" title="Add Timeline Event (Local Tool)">
             <Sparkles size={16} /> Add Event (Tool)
           </a>
         </div>
@@ -55,9 +55,9 @@ export default function HomePage() {
              <Users size={24} /> {/* Placeholder Icon */}
            </a>
             {/* Twitter/X - Adicione seu link */}
-           {/* <a href="https://twitter.com/getlit" target="_blank" rel="noopener noreferrer" className="hover:text-sky-400 transition duration-200" title="Follow on X">
+           <a href="https://twitter.com/eaeniko" target="_blank" rel="noopener noreferrer" className="hover:text-sky-400 transition duration-200" title="Follow on X">
              <Twitter size={24} />
-           </a> */}
+           </a>
 
         </div>
 

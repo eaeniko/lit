@@ -49,7 +49,7 @@
     "description": "Add Vercel Analytics component to track if organic views are comming to validate ideias."
   },
   {
-    "id": "DESIGN-INIT-20251028-090349",
+    "id": "DESIGN-INIT-20251023-161519",
     "date": "2025-10-23T19:15:19.000Z",
     "tags": [
       "DESIGN",
@@ -58,6 +58,17 @@
     "icon": "Palette",
     "title": "Create first temporary icon",
     "description": "2D detailed pixel art temporary Icon for Avatar frame and trying to define the art style of the project."
+  },
+  {
+    "id": "DEV-INIT-20251028-193123",
+    "date": "2025-10-28T22:31:23.509Z",
+    "tags": [
+      "DEV",
+      "INIT"
+    ],
+    "icon": "Code2",
+    "title": "pre-alpha LIT open-srouce launch project",
+    "description": "First test build! 🚀\\n\\n**Features:**\\n* Basic To-Do List (Add, Edit, Complete, Delete)\\n* Local Hive Storage\\n* History View\\n\\n**Known Issues:**\\n* UI is very basic.\\n* No game mechanics implemented yet.\\n\\nPlease provide feedback! 🙏"
   }
 ]
 
