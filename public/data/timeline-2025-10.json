@@ -5,7 +5,7 @@
     "tags": ["META", "INIT"],
     "icon": "PartyPopper",
     "title": "Official Project Start",
-    "description": "Lit project officially started after conceptual discussions with Gemini. `lit-app` repository created on GitHub. Initial GDD structure (v1) created on GitHub Wiki."
+    "description": "Lit project officially started after conceptual discussions with Gemini. `lit-app` repository created on GitHub. Initial GDD structure (v1) created on GitHub Wiki. Front-end 100% open source."
   },
    {
     "id": "entry-init-20251027-153700",
@@ -24,7 +24,7 @@
   ],
   "icon": "Megaphone",
   "title": "Publish first landing page",
-  "description": "Temporary landing page with usefull links and changelog."
+  "description": "Temporary landing page with usefull links and changelog. Landing Page 100% open source. "
   },
   {
     "id": "DESIGN-UPDATE-20251027-173730",
@@ -47,6 +47,17 @@
     "icon": "Code2",
     "title": "Add Vercel Analytics component",
     "description": "Add Vercel Analytics component to track if organic views are comming to validate ideias."
+  },
+  {
+    "id": "DESIGN-INIT-20251028-090349",
+    "date": "2025-10-23T19:15:19.000Z",
+    "tags": [
+      "DESIGN",
+      "INIT"
+    ],
+    "icon": "Palette",
+    "title": "Create first temporary icon",
+    "description": "2D detailed pixel art temporary Icon for Avatar frame and trying to define the art style of the project."
   }
 ]
 
