@@ -68,7 +68,7 @@
     ],
     "icon": "Code2",
     "title": "pre-alpha LIT open-srouce launch project",
-    "description": "First test build! 🚀\\n\\n**Features:**\\n* Basic To-Do List (Add, Edit, Complete, Delete)\\n* Local Hive Storage\\n* History View\\n\\n**Known Issues:**\\n* UI is very basic.\\n* No game mechanics implemented yet.\\n\\nPlease provide feedback! 🙏"
+    "description": "First test build! 🚀\\n\\nFeatures:\\n Basic To-Do List (Add, Edit, Complete, Delete)\\n Local Hive Storage\\n History View\\n\\nKnown Issues:\\n UI is very basic.\\n No game mechanics implemented yet.\\n\\nPlease provide feedback! 🙏"
   }
 ]
 
