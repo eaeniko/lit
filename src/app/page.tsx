@@ -26,12 +26,15 @@ export default function HomePage() {
           <Link href="/changelog" className="flex items-center gap-2 px-4 py-2 bg-gray-800/50 hover:bg-gray-700/70 backdrop-blur-md border border-white/10 rounded-lg transition duration-200 text-sm font-medium">
             <Milestone size={16} /> Changelog
           </Link>
+          <Link href="/changelog" target='_blank' className="flex items-center gap-2 px-4 py-2 bg-gray-800/50 hover:bg-gray-700/70 backdrop-blur-md border border-white/10 rounded-lg transition duration-200 text-sm font-medium">
+            <Github size={16} /> Download (APK / Pre-alpha)
+          </Link>
           {/* Link with onClick requires "use client" */}
           <Link href="/#roadmap" className="flex items-center gap-2 px-4 py-2 bg-gray-800/50 hover:bg-gray-700/70 backdrop-blur-md border border-white/10 rounded-lg transition duration-200 text-sm font-medium text-gray-500 cursor-not-allowed" onClick={(e) => e.preventDefault()}>
              <BookText size={16} /> Roadmap (Soon)
           </Link>
            {/* Link para a ferramenta local - abre em nova aba */}
-          <a href="/changelog/add-event" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 bg-gray-800/50 hover:bg-gray-700/70 backdrop-blur-md border border-white/10 rounded-lg transition duration-200 text-sm font-medium" title="Add Timeline Event (Local Tool)">
+          <a href="/changelog/add-event" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 bg-gray-800/50 hover:bg-gray-700/70 backdrop-blur-md border border-white/10 rounded-lg transition duration-200 text-sm font-medium" title="Add Timeline Event (Local Tool)">
             <Wrench size={16} /> Timeline Event (Tool)
           </a>
         </div>
@@ -39,7 +42,7 @@ export default function HomePage() {
         {/* Social & Community Links */}
         <div className="flex justify-center gap-6 text-gray-500">
           {/* Use process.env.NEXT_PUBLIC_GITHUB_REPO_URL or hardcode */}
-          <a href="https://github.com/eaeniko/lit" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition duration-200" title="GitHub Repository">
+          <a href="https://github.com/eaeniko/lit-app" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition duration-200" title="GitHub Repository">
             <Github size={24} />
           </a>
            {/* Use process.env.NEXT_PUBLIC_PATREON_URL or hardcode */}
