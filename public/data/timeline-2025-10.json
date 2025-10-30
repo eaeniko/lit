@@ -93,6 +93,18 @@
     "title": "Add new event to the landing page",
     "description": "Now you can se how I add locally a new timeline event to the changelog.\\n Learn how to use the tool:\\n * Fill the Form and Generate.\\n * Copy the Json generated text and paste into your json file.\\n * Commit to your github and you're done."
   }
+  ,
+  {
+    "id": "DEV-NEW-20251030-110319",
+    "date": "2025-10-30T14:03:19.723Z",
+    "tags": [
+      "DEV",
+      "NEW"
+    ],
+    "icon": "Code2",
+    "title": "Add timeline filter & visual delays",
+    "description": "You can now filter by tags.\\n* added new visual delays when showing the entries.\\n* button to load old entries"
+  }
 ]
 
 
