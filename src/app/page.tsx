@@ -2,7 +2,11 @@
 
 import Link from 'next/link';
 // Corrected import: Added Rocket
-import { Github, Twitter, BookText, Milestone, Users, Mic, HeartHandshake, Sparkles, Rocket } from 'lucide-react';
+import { 
+  Github, Twitter, BookText, Milestone, Users, Mic, HeartHandshake, Sparkles, Rocket,
+  Wrench,
+
+} from 'lucide-react';
 
 export default function HomePage() {
   return (
@@ -27,8 +31,8 @@ export default function HomePage() {
              <BookText size={16} /> Roadmap (Soon)
           </Link>
            {/* Link para a ferramenta local - abre em nova aba */}
-          <a href="/tools/adicionar_evento.html" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 bg-gray-800/50 hover:bg-gray-700/70 backdrop-blur-md border border-white/10 rounded-lg transition duration-200 text-sm font-medium text-gray-500 cursor-not-allowed" title="Add Timeline Event (Local Tool)">
-            <Sparkles size={16} /> Add Event (Tool)
+          <a href="/changelog/add-event" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 bg-gray-800/50 hover:bg-gray-700/70 backdrop-blur-md border border-white/10 rounded-lg transition duration-200 text-sm font-medium" title="Add Timeline Event (Local Tool)">
+            <Wrench size={16} /> Timeline Event (Tool)
           </a>
         </div>
 
