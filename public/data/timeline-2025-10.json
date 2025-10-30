@@ -91,7 +91,7 @@
     ],
     "icon": "Code2",
     "title": "Add new event to the landing page",
-    "description": "Now you can se how I add locally a new timeline event to the changelog.\\n//n Learn how to use the tool:\"\\n//n * Fill the Form and Generate.\\n//n * Copy the Json generated text and paste into your json file.\\n//n * Commit to your github and you're done."
+    "description": "Now you can se how I add locally a new timeline event to the changelog.\\n Learn how to use the tool:\\n * Fill the Form and Generate.\\n * Copy the Json generated text and paste into your json file.\\n * Commit to your github and you're done."
   }
 ]
 
