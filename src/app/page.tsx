@@ -26,8 +26,8 @@ export default function HomePage() {
           <Link href="/changelog" className="flex items-center gap-2 px-4 py-2 bg-gray-800/50 hover:bg-gray-700/70 backdrop-blur-md border border-white/10 rounded-lg transition duration-200 text-sm font-medium">
             <Milestone size={16} /> Changelog
           </Link>
-          <Link href="/changelog" target='_blank' className="flex items-center gap-2 px-4 py-2 bg-gray-800/50 hover:bg-gray-700/70 backdrop-blur-md border border-white/10 rounded-lg transition duration-200 text-sm font-medium">
-            <Github size={16} /> Download (APK / Pre-alpha)
+          <Link href="https://github.com/eaeniko/lit-app/releases" target='_blank' className="flex items-center gap-2 px-4 py-2 bg-gray-800/50 hover:bg-gray-700/70 backdrop-blur-md border border-white/10 rounded-lg transition duration-200 text-sm font-medium">
+            <Github size={16} /> Download (APK)
           </Link>
           {/* Link with onClick requires "use client" */}
           <Link href="/#roadmap" className="flex items-center gap-2 px-4 py-2 bg-gray-800/50 hover:bg-gray-700/70 backdrop-blur-md border border-white/10 rounded-lg transition duration-200 text-sm font-medium text-gray-500 cursor-not-allowed" onClick={(e) => e.preventDefault()}>
