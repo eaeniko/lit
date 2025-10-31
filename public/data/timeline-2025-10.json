@@ -105,6 +105,18 @@
     "title": "Add timeline filter & visual delays",
     "description": "You can now filter by tags.\\n* added new visual delays when showing the entries.\\n* button to load old entries"
   }
+  ,
+  {
+    "id": "DEV-RELEASE-20251030-210637",
+    "date": "2025-10-31T00:06:37.829Z",
+    "tags": [
+      "DEV",
+      "RELEASE"
+    ],
+    "icon": "Code2",
+    "title": "New pre-alpha release v0.3.5",
+    "description": "Release new build with:\\n* new UI update\\n* Now we have a menu\\n* New Avatar card\\n* New XP logic to level up when you finish task/subtasks and notes."
+  }
 ]
 
 
