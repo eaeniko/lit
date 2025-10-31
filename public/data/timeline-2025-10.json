@@ -116,6 +116,17 @@
     "icon": "Code2",
     "title": "New pre-alpha release v0.3.5",
     "description": "Release new build with:\\n* new UI update\\n* Now we have a menu\\n* New Avatar card\\n* New XP logic to level up when you finish task/subtasks and notes."
+  },
+  {
+    "id": "DEV-REFACTOR-20251031-181125",
+    "date": "2025-10-31T21:11:25.987Z",
+    "tags": [
+      "DEV",
+      "REFACTOR"
+    ],
+    "icon": "Code2",
+    "title": "Refactor code base for QOL",
+    "description": "Refactor code base for QOL.\\n* With this update the plan is to not update anymore using AI coding generated to avoid prompt error cycle.\\n* Next update I will re-create the entire code by myself. Then we start for real.\\n* So why create this with AI in the first place? So you an early adopter can use, give feedback, participate the community and the main thing: You will XP farm & level so when the first official release (any release after this) you will be ahead of everyone that will wait stable versions to download.\\n* Enjoy and grind your levels and give me feedbacks and new ideias!"
   }
 ]
 
