@@ -20,5 +20,16 @@
   "icon": "Code2",
   "title": "Add 5 new features",
   "description": "Some new features for QOL (Quality Of Life) for the app until I cant start from 0.\\n\\n* import/export data - so if you have any bugs you can delete the app and reinstall without lose any data.\\n* add reminder & notification\\n* add repeat task, daily/weel/month\\n"
+},
+{
+  "id": "DEV-FIX-20251104-212723",
+  "date": "2025-11-05T00:27:23.758Z",
+  "tags": [
+    "DEV",
+    "FIX"
+  ],
+  "icon": "Code2",
+  "title": "Fix bug when minize app",
+  "description": "Fix bug when minize app with modal for edit a task is open."
 }
 ]
